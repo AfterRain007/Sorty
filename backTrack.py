@@ -3,7 +3,7 @@ from util import *
 def main():
     print("BackTracking!!")
     files = take_file_list("./")
-    
+    files = [directory for directory in files if directory[0] != "./"]
     for file in files:
         fileDir = f"{file[0]}/{file[1]}"
         try:

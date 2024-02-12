@@ -27,13 +27,15 @@ def filterList(list1, list2):
 
 #Return a List of File to Move
 def list_files_format(files, reg):
-    files_list = []
+    #files_list = []
     compiled_patterns = [re.compile(pattern) for pattern in reg["regex"]]
     
+    files_list = [file for file in files if any(re.search(pattern, file[1].lower()) for pattern in compiled_patterns)]
+    '''
     for file in files:
         if any(re.search(ext, file[1].lower()) for ext in compiled_patterns):
             files_list.append(file)
-            
+    '''     
     return files_list
    
 #Moving the File
